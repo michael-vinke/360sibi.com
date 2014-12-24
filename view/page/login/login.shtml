@@ -1,0 +1,6 @@
+<!--#include file="/view/page/_head.php"-->
+<script src="/view/js/lib/require.js" data-main="/view/js/app/login/login"></script>
+<div>
+    Hello World
+</div>
+<!--#include file="/view/page/_foot.html"-->
