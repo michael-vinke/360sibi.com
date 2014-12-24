@@ -1,6 +1,7 @@
-<!--#include file="/view/page/_head.php"-->
+<!--#include virtual="/view/page/_head.php"-->
 <script src="/view/js/lib/require.js" data-main="/view/js/app/sibi/sibi"></script>
 <div>
     Hello World
+    <p>This is sibi area !</p>
 </div>
-<!--#include file="/view/page/_foot.html"-->
+<!--#include virtual="/view/page/_foot.html"-->
