@@ -13,6 +13,7 @@
 
 	class DBoper {
 
+		//return dataset array in type of (key-value array, index array, obj array)
 		const ASSOC = 1;
 		const INDEX = 0;
 		const OBJ   = 2;
@@ -128,6 +129,20 @@
 		}
 
 		/**
+		*  create statement
+		* @param statement sql (e.g. "insert into tablename values(?,?,?...)")
+		*
+		*
+		**/
+		public function create_statement($stmt_sql) {
+
+			$sql_string = $stmt_sql;
+			$stmt = $this->_db->prepare($sql_string);	
+			return $stmt;
+		}
+
+		
+		/**
 		* guide
 		* how to use this class to operate db
 		* i perform here and no not run this function code in project
@@ -136,11 +151,20 @@
 		**/
 		public static function test() {
 			$db = DBoper::getInstance();
+			
 			$sql = "SELECT * FROM country";
 			$result = $db->fetch($sql, ASSOC);
 			print_r($result);	
+			
+			$sql = "insert into user(username, password) values(?, ?)";
+			$stmt = $db->create_statement($sql);
+
+			$name = "nickzhu";
+			$password = "123456";
+			$stmt->bind_param("ss", $name, $password);	
+			$stmt->execute();
+			echo $stmt->affected_rows;	
 		}
 	}
-
-	DBoper::test();
+	
 ?>
