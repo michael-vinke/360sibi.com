@@ -13,11 +13,6 @@
 
 	class DBoper {
 
-		//return dataset array in type of (key-value array, index array, obj array)
-		const ASSOC = 1;
-		const INDEX = 0;
-		const OBJ   = 2;
-
 		private $_db;
 		private static $_instance;
 
@@ -99,6 +94,7 @@
 		**/
 		public function fetch($sql, $type) {
 			$result = array();
+			$data = array();	
 			$data = $this->query($sql);
 
 			if (!isset($type)) $type = 1;
@@ -122,9 +118,7 @@
 						}
 						break;
 					}
-				
 			}
-				
 			return $result;
 		}
 
@@ -152,8 +146,8 @@
 		public static function test() {
 			$db = DBoper::getInstance();
 			
-			$sql = "SELECT * FROM country";
-			$result = $db->fetch($sql, ASSOC);
+			$sql = "SELECT * FROM sibi360.user";
+			$result = $db->fetch($sql, 1);
 			print_r($result);	
 			
 			$sql = "insert into user(username, password) values(?, ?)";
@@ -164,7 +158,7 @@
 			$stmt->bind_param("ss", $name, $password);	
 			$stmt->execute();
 			echo $stmt->affected_rows;	
+		
 		}
 	}
-	
 ?>
