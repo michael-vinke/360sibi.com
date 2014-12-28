@@ -4,7 +4,7 @@
     * @author Mike mikecoder.cn@gmail.com
     * @date 2014-12-16
     */
-   require ('DBoper.class.php');
+   require ('../includes/DBoper.class.php');
 
    class User {
 
