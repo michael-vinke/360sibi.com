@@ -1,13 +1,12 @@
 <?php
    /**
-    * Class user
-    * @author Mike mikecoder.cn@gmail.com
-    * @date 2014-12-16
-    */
+   * Class sibi
+   * @author Mike mikecoder.cn@gmail.com
+   * @date 2014-12-16
+   */
    require ('../includes/DBoper.class.php');
 
-   class User {
-
+   class Sibi {
       private $db_handle;
 
       public function __construct() {
@@ -19,7 +18,7 @@
       }
 
       /**
-      * store new user
+      * store new sibi
       * @param $user_name
       * @param $user_passwd
       *

@@ -1,5 +1,5 @@
 <?php
-	
+
 	/**
 	* Action Login
 	* @author fenicesun <kevin.samuel.sun@gmail.com>
@@ -10,12 +10,12 @@
 	require_once ('../model/user.php');
 	require_once ('../includes/Action.class.php');
 
-	class Login extends Action {	
+	class Login extends Action {
 
 		private $user;
 
 		public function __construct() {
-			parent::__construct();	
+			parent::__construct();
 			$this->user = new User();
 		}
 
@@ -25,7 +25,7 @@
 
 		/**
 		* init dispatch
-		* call this function after new 
+		* call this function after new
 		* fiter the param
 		*/
 		public function init() {
@@ -59,7 +59,7 @@
 						$this->error(404);
 						break;
 			}
-		}																			
+		}
 
 		/**
 		*  deal with login
@@ -70,7 +70,7 @@
 
 			$username = $param['username'];
 			$password = $param['password'];
-			$result = $this->get_user()->login_user($username, $password);								
+			$result = $this->get_user()->login_user($username, $password);
 			$ret = new ReturnInfo();
 			$data = array();
 			if ($result == true) {
@@ -90,8 +90,8 @@
 		*/
 		public function check_username_exists($param) {
 			$username = $param['username'];
-			
-			$result = $this->get_user()->is_exists_user($username);	
+
+			$result = $this->get_user()->is_exists_user($username);
 			$ret = new ReturnInfo();
 			if ($result == false) {
 				$ret->set_return_info(-1, "用户名不存在");
@@ -118,21 +118,21 @@
 				$ret->set_return_info(-1, "该用户名已注册");
 				echo $this->put_response_in_json($ret);
 				return;
-			}	
+			}
 
 			try {
 				$this->user->store_user($username, $password);
 				$ret->set_return_info(0, "注册成功!");
 			} catch (Exception $e) {
 				$ret->set_return_info(-1, "注册失败!");
-			}	
+			}
 			echo $this->put_response_in_json($ret);
 			return;
 		}
 
-	}	
+	}
 
 	$login = new Login();
-	$login->init();							
+	$login->init();
 
 ?>
