@@ -1,6 +1,7 @@
 <!--#include file="view/page/_head.php"-->
 <div>
-    Hello World
+    <a href="view/page/login/login.shtml">Login</a>
+	<a href="view/page/sibi/sibi.shtml">Sibi Page</a>
 </div>
 <!--#include file="view/page/_foot.html"-->
 
