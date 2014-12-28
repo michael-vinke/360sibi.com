@@ -23,7 +23,7 @@
 		*
 		*/
 		public function get_request_by_key($key) {
-			return $this->request_data['$key'];	
+			return $this->request_data[$key];	
 		}
 
 		/**
@@ -46,7 +46,17 @@
 
 		}								
 
+		/**
+		* error handle
+		*
+		*
+		*/
+		public function error($error_code) {
+			$location = "Location: http://www.360sibi.com/view/page/error.php?error_code = {$error_code}";	
+			header($location);
+		}
 
 	}	
+
 
 ?>
