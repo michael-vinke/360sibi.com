@@ -29,7 +29,7 @@
           $sql_store = "INSERT INTO sibi360.user(username, password) values(?, ?)"; 
           $stmt = $this->get_db_handle()->create_statement($sql_store);
 
-          $stmt->bind_param("ss", $user_name, $user_passwd);
+          $stmt->bind_param("ss", $user_name, md5($user_passwd));
           $stmt->execute();
           return true;   
       }
@@ -42,8 +42,8 @@
       public function login_user($user_name, $user_password) {
             
           //此处可加上对 sql参数进行过滤, 暂时没做 
-
-          $sql_exists = "SELECT COUNT(uid) as num FROM sibi360.user WHERE username = '{$user_name}' AND password = '{$user_password}'";
+          $passwd = md5($user_password);
+          $sql_exists = "SELECT COUNT(uid) as num FROM sibi360.user WHERE username = '{$user_name}' AND password = '{$passwd}'";
           $result = $this->get_db_handle()->fetch($sql_exists, 1);
 
           if ($result[0]['num'] < 1) {
@@ -63,7 +63,7 @@
           $sql_exists = "SELECT COUNT(*) as num FROM sibi360.user WHERE username = '{$user_name}'"; 
           $result = $this->get_db_handle()->fetch($sql_exists, 1); 
 
-          if (count($result) < 1)
+          if ($result[0]['num'] < 1)
             return false;
           else
             return true;
@@ -73,6 +73,6 @@
 
   //$usr = new User();
   //echo $usr->storeUser("chirscai", "123456");
-  //echo $usr->is_exists_user("fenicesun"); 
+  //echo $usr->is_exists_user("kevin_samuel"); 
   //echo $usr->login_user("fenice", "123456"); 
 ?>

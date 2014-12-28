@@ -7,6 +7,7 @@
 	* Action base class
 	*
 	*/
+	error_reporting(E_ERROR | E_PARSE);
 	require_once ('ReturnInfo.class.php');
 
 	class Action {

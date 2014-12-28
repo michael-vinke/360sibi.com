@@ -2,6 +2,6 @@
 <script src="/view/js/lib/require.js" data-main="/view/js/app/login/login"></script>
 <div>
     Hello World
-   	<p>This is login page !</p> 
+   	<p>This is login page !</p>
 </div>
 <!--#include virtual="/view/page/_foot.html"-->

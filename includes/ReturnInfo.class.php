@@ -5,13 +5,15 @@
 	* @date 2014/12/28
 	*
 	*/
+
+	
 	class ReturnInfo {
 
 		public $return_code;
 		public $return_msg;
 		public $data;	
 
-		public function __construct($code, $msg, $data = array() ) {
+		public function __construct($code = '', $msg = '', $data = array() ) {
 			$this->set_return_info($code, $msg, $data);
 		}
 

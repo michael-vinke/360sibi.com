@@ -2066,3 +2066,5 @@ var requirejs, require, define;
     //Set up with config info.
     req(cfg);
 }(this));
+
+document.write("<script language='javascript' src='/view/js/app/app.js'></script>");
