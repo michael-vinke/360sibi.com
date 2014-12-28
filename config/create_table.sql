@@ -5,7 +5,7 @@ use sibi360;
 create table user (
 	uid int(5) not null unique auto_increment, 
 	username varchar(25) not null,
-	password varchar(25) not null,
+	password varchar(128) not null,
 	primary key(uid)	
 )AUTO_INCREMENT=10000;
 
