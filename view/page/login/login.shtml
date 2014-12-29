@@ -2,16 +2,16 @@
 <script src="/view/js/lib/require.js" data-main="/view/js/app/login/login"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="../../css/lib/bootstrap.min.css" />
-<link rel="stylesheet" href="../../css/lib/bootstrap.css" />
+<link rel="stylesheet" href="/view/css/lib/bootstrap.min.css" />
+<link rel="stylesheet" href="/view/css/lib/bootstrap.css" />
 
 <nav class="navbar navbar-default" role="navigation">
 	<div class="navbar-header">
-		<a class="navbar-brand" href="../../../index.shtml">Home</a>
+		<a class="navbar-brand" href="/index.shtml">Home</a>
 	</div>
 	<div>
 		<ul class="nav navbar-nav">
-			<li><a href="../sibi/sibi.shtml">sibi</a></li>
+			<li><a href="/view/page/sibi/sibi.shtml">sibi</a></li>
 			<li class="active"><a href="login.shtml">login</a></li>
 		</ul>
 	</div>
@@ -20,38 +20,38 @@
 
 <div class="row-fluid">
 	<div class="container-fluid span3 offset1">
-    	<form id="userlogin" class="form-signin" role="form" style="display:block">
+    	<form id="user_login" class="form-signin" role="form" style="display:block">
         	<h3 class="form-signin-heading">用户登录</h3>
         	<a class="right_top_sign" id="showRegForm">>>注册账号~</a><br/>
 	    	<div>
 	    			<div style="height:16px;clear:both;display:block"></div>
-		        丶用户名：<br/>
+		        用户名：<br/>
 		        <input type="text" style="height:24px" class="form-control" id="username" placeholder="请输入用户名" required autofocus>
 		            <div style="height:16px;clear:both;display:block"></div>
-		        丶密码：<br/>
-		        <input type="password" style="height:24px" class="form-control" id="password" placeholder="请输入密码" required>
+		        密码：<br/>
+		        <input type="password" style="height:24px" class="form-control" id="password_login" placeholder="请输入密码" required>
 		        	<div style="height:16px;clear:both;display:block"></div>
 		        <button class="btn btn-lg btn-primary btn-block" type="button" id="login">登录</button>
 		    </div>
     	</form>
 
-    	<form id="regUser" class="form-signin" role="form" style="display:none">
+    	<form id="user_register" class="form-signin" role="form" style="display:none">
     		<h3 class="form-signin-heading">账号注册</h3>
         	<a class="right_top_sign" id="showLoginForm">>>已有账号？</a><br/>
 	    	<div>
 	    			<div style="height:16px;clear:both;display:block"></div>
 
-		        丶昵称：<br/>
+		        昵称：<br/>
 		        <input type="text" style="height:24px" class="form-control" id="nickname" placeholder="" required autofocus>
 		        <p style="display:none" id="wrongnn">昵称重复啦~换一个吧~</p>
 		            <div style="height:16px;clear:both;display:block"></div>
 
-		        丶密码：<br/>
-		        <input type="password" style="height:24px" class="form-control" id="password1" placeholder="请输入密码" required>
+		        密码：<br/>
+		        <input type="password" style="height:24px" class="form-control" id="password_register" placeholder="请输入密码" required>
 		        	<div style="height:16px;clear:both;display:block"></div>
 
-		        丶密码确认：<br/>
-		        <input type="password" style="height:24px" class="form-control" id="confirm" placeholder="请输入密码" required>
+		        密码确认：<br/>
+		        <input type="password" style="height:24px" class="form-control" id="password_confirm" placeholder="请输入密码" required>
 		        	<div style="height:16px;clear:both;display:block"></div>
 		        <button class="btn btn-lg btn-primary btn-block" type="button" id="register">注册</button>
 		    </div>

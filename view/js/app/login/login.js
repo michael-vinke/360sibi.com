@@ -1,90 +1,169 @@
-require(['jquery', 'bootstrap','jquery.md5'], 
+require(['jquery', 'bootstrap', 'jquery.md5'], 
 	function() {
+
 		/**
-		* jquery domready
+		* page gobal variable
 		*
 		*/
-		
-		$(document).ready(function(){
-			$("a#showRegForm").click(function reg_out(){
-		    var my_info = document.getElementById("regUser");
-		    var my_study = document.getElementById("userlogin");
-		    
-		    my_info.style.display = "block";
-		    my_study.style.display = "none";
-			});
-		});
-		$(document).ready(function(){
-			$("a#showLoginForm").click(function login_out(){
-		    var my_info = document.getElementById("userlogin");
-		    var my_study = document.getElementById("regUser");
-		    
-		    my_info.style.display = "block";
-		    my_study.style.display = "none";
-			});
-		});
-		
-		$(document).ready(function(){
-		$("button#login").click(
-		function(){
-			//alert("Login !");
-			var user = $("input#username").val();
-			var passwd = $("input#password").val();
-			if(user.length==0) {alert("Please Enter Username !");return;}
-			if(passwd.length==0){alert("Please Enter Password !");return;}
+		G_DATA = {};	
 
-			$.post("/controller/LoginAction.php",{
-				action:"login",
-				username:user,
-				password:$.md5(passwd)},
-				function(data,ststus){alert(data.return_msg);},
-				"json");
-			});
-		});
-		$(document).ready(function(){
-		$("button#register").click(function(){
-			var un = $("input#nickname").val();
-			var pw = $("input#password1").val();
-			var cf = $("input#confirm").val();
-			if(un.length==0){alert("Please Enter Username !");return;}
-			if(pw.length==0||cf.length==0||pw!=cf){alert("Wrong Password !");return;}
-			
-			$.post("/controller/LoginAction.php",
-				{action:"register",username:un,password:$.md5(pw)},
-				function(data,status){alert(data.return_msg);},
-				"json");
-		});
-		$(document).ready(function(){
-			$("input#nickname").blur(function(){
-				var un = $("input#nickname").val();
-				$.post("/controller/LoginAction.php",
-				{action:"check",username:un},
-				function(data,status){
-					if(data.return_code==0)
-					{
-						//用户名存在
-						$("p#wrongnn").style.display = "block";
-					}else
-					{
-						$("p#wrongnn").style.display = "none";
+		/**
+		* @author fygreen
+		* function switch div
+		*/
+		var SwitchLogAndReg = function (divId1, divId2) {
+			var $div1 = $('#' + divId1);
+			var $div2 = $('#' + divId2);
+
+			$div1.css('display', 'block');
+			$div2.css('display', 'none');
+		}
+
+		/**
+		* @author fygreen
+		* Login font-end action
+		*
+		*/
+
+		var Login = {
+
+			init: function() {
+				var _self = this;
+				_self.switchDiv();
+				_self.login();
+			},
+
+			switchDiv: function() {
+
+				$("#showLoginForm").click(function() {
+
+					SwitchLogAndReg("user_login", "user_register");
+				});
+			},
+
+			login: function() {
+
+				$("#login").click(function(event) {
+
+					var username = $("#username").val();	
+					var password = $("#password_login").val();
+
+					if(username.length==0) { 
+						alert("Please Enter Username !");
+						return;
 					}
-				},
-				"json");
-			});
+					if(password.length==0) {
+						alert("Please Enter Password !");
+						return;
+					}
+
+				    $.post("/controller/LoginAction.php",{
+
+							action:  "login",
+							username: username,
+							password: $.md5(password)
+
+					}, function(data, ststus){
+
+						alert(data.return_msg);
+
+					}, "json");
+
+				});	
+			},
+
+		}
+
+		/**
+		* @author nickzhu
+		* Register font-end action
+		*
+		*/
+
+		var Register = {
+
+			init: function() {
+				var _self = this;
+				_self.switchDiv();
+				_self.register();
+				_self.check_user_exists();
+			},
+
+			switchDiv: function() {
+
+				$("#showRegForm").click(function() {
+
+					SwitchLogAndReg("user_register", "user_login");
+				});
+			},	
+
+			register: function() {
+
+				$("#register").click(function(event) {
+
+					var username = $("nickname").val();
+					var password_register = $("password_register").val();
+					var password_confirm  = $("password_confirm").val();
+
+					if (username.length == 0) {
+						alert("请输入用户名 !");
+						return;
+					}
+
+					if (password_register.length == 0 || password_confirm.length == 0 || password_register !== password_confirm) {
+						alert("密码不对！");
+					}
+
+					$.post("/controller/LoginAction.php", {
+						action:   "register",
+						username: username,
+						password: $.md5(password_register)
+
+					}, function(data, status) {
+
+						alert(data.return_msg);
+
+					}, "json");
+
+				});	
+			},
+
+			check_user_exists: function() {
+
+				$("#nickname").blur(function(event) {
+
+					var username = $("#nickname").val();	
+					$.post("/controller/LoginAction.php", {
+
+						action:"check",
+						username:username
+
+					}, function(data,status) {
+
+						if(data.return_code==0) {
+							//用户名存在
+							$("#wrongnn").css("display", "block");
+						} else {
+							$("#wrongnn").css("display", "none");
+						}
+
+					}, "json");
+
+				});
+			},
+
+		}
+
+
+		/**
+		* @author fenicesun
+		* domready setting
+		*
+		*/
+		$(function(){
+			
+			Login.init();
+			Register.init();
 		});
 		
-	});
-		$(function() {
-			//alert("success! let's login!");
-			/*
-			$.post("/controller/LoginAction.php", {
-				action: "check",
-				username: "martin",
-				password: "123456"
-			}, function(data, status) {
-				alert(data.return_msg);
-			}, "json");
-			*/
-		});	
-
 });
