@@ -1,4 +1,4 @@
-require(['jquery', 'bootstrap'], 
+require(['jquery', 'bootstrap','jquery.md5'], 
 	function() {
 		/**
 		* jquery domready
@@ -16,7 +16,7 @@ require(['jquery', 'bootstrap'],
 			$.post("/controller/LoginAction.php",{
 				action:"login",
 				username:user,
-				password:passwd},
+				password:$.md5(passwd)},
 				function(data,ststus){alert(data.return_msg);},
 				"json");
 			});
