@@ -53,7 +53,7 @@
 		*
 		*/
 		public function error($error_code) {
-			$location = "Location: http://www.360sibi.com/view/page/error.php?error_code = {$error_code}";	
+			$location = "Location: http://www.360sibi.com/view/page/error.php?error_code={$error_code}";	
 			header($location);
 		}
 
