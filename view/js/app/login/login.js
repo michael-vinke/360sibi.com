@@ -4,20 +4,26 @@ require(['jquery', 'bootstrap','jquery.md5'],
 		* jquery domready
 		*
 		*/
-		function reg_out(){
+		
+		$(document).ready(function(){
+			$("a#showRegForm").click(function reg_out(){
 		    var my_info = document.getElementById("regUser");
 		    var my_study = document.getElementById("userlogin");
 		    
 		    my_info.style.display = "block";
 		    my_study.style.display = "none";
-		}
-		function login_out(){
+			});
+		});
+		$(document).ready(function(){
+			$("a#showLoginForm").click(function login_out(){
 		    var my_info = document.getElementById("userlogin");
 		    var my_study = document.getElementById("regUser");
 		    
 		    my_info.style.display = "block";
 		    my_study.style.display = "none";
-		}
+			});
+		});
+		
 		$(document).ready(function(){
 		$("button#login").click(
 		function(){
@@ -35,8 +41,41 @@ require(['jquery', 'bootstrap','jquery.md5'],
 				"json");
 			});
 		});
+		$(document).ready(function(){
+		$("button#register").click(function(){
+			var un = $("input#nickname").val();
+			var pw = $("input#password1").val();
+			var cf = $("input#confirm").val();
+			if(un.length==0){alert("Please Enter Username !");return;}
+			if(pw.length==0||cf.length==0||pw!=cf){alert("Wrong Password !");return;}
+			
+			$.post("/controller/LoginAction.php",
+				{action:"register",username:un,password:$.md5(pw)},
+				function(data,status){alert(data.return_msg);},
+				"json");
+		});
+		$(document).ready(function(){
+			$("input#nickname").blur(function(){
+				var un = $("input#nickname").val();
+				$.post("/controller/LoginAction.php",
+				{action:"check",username:un},
+				function(data,status){
+					if(data.return_code==0)
+					{
+						//用户名存在
+						$("p#wrongnn").style.display = "block";
+					}else
+					{
+						$("p#wrongnn").style.display = "none";
+					}
+				},
+				"json");
+			});
+		});
+		
+	});
 		$(function() {
-			alert("success! let's login!");
+			//alert("success! let's login!");
 			/*
 			$.post("/controller/LoginAction.php", {
 				action: "check",
