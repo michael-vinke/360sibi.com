@@ -4,6 +4,20 @@ require(['jquery', 'bootstrap','jquery.md5'],
 		* jquery domready
 		*
 		*/
+		function reg_out(){
+		    var my_info = document.getElementById("regUser");
+		    var my_study = document.getElementById("userlogin");
+		    
+		    my_info.style.display = "block";
+		    my_study.style.display = "none";
+		}
+		function login_out(){
+		    var my_info = document.getElementById("userlogin");
+		    var my_study = document.getElementById("regUser");
+		    
+		    my_info.style.display = "block";
+		    my_study.style.display = "none";
+		}
 		$(document).ready(function(){
 		$("button#login").click(
 		function(){

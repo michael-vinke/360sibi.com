@@ -1,10 +1,62 @@
 <!--#include virtual="/view/page/_head.php"-->
 <script src="/view/js/lib/require.js" data-main="/view/js/app/login/login"></script>
-<div>
-    Hello World
-   	<p>This is login page !</p>
-		<p>UserName:<input type="text" id="username"/></p>
-		<p>Password:<input type="password" id="password"/></p>
-		<button type="button" id="login">Login</button>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../../css/lib/bootstrap.min.css" />
+<link rel="stylesheet" href="../../css/lib/bootstrap.css" />
+
+<nav class="navbar navbar-default" role="navigation">
+	<div class="navbar-header">
+		<a class="navbar-brand" href="index.shtml">Home</a>
+	</div>
+	<div>
+		<ul class="nav navbar-nav">
+			<li><a href="sibi.shtml">sibi</a></li>
+			<li class="active"><a href="sibi.shtml">login</a></li>
+		</ul>
+	</div>
+</nav>
+<br/>
+
+<div class="row-fluid">
+	<div class="container-fluid span3 offset1">
+    	<form id="userlogin" action="#" class="form-signin" role="form" style="display:block">
+        	<h3 class="form-signin-heading">用户登录</h3>
+        	<a class="right_top_sign" onclick="reg_out()">>>注册账号~</a><br/>
+	    	<div>
+	    			<div style="height:16px;clear:both;display:block"></div>
+		        丶用户名：<br/>
+		        <input type="text" style="height:24px" class="form-control" placeholder="请输入用户名" required autofocus>
+		            <div style="height:16px;clear:both;display:block"></div>
+		        丶密码：<br/>
+		        <input type="password" style="height:24px" class="form-control" placeholder="请输入密码" required>
+		        	<div style="height:16px;clear:both;display:block"></div>
+		        <button class="btn btn-lg btn-primary btn-block" type="submit">登录</button>
+		    </div>
+    	</form>
+
+    	<form id="regUser" action="#" class="form-signin" role="form" style="display:none">
+    		<h3 class="form-signin-heading">账号注册</h3>
+        	<a class="right_top_sign" onclick="login_out()">>>已有账号？</a><br/>
+	    	<div>
+	    			<div style="height:16px;clear:both;display:block"></div>
+
+		        丶昵称：<br/>
+		        <input type="text" style="height:24px" class="form-control" placeholder="" required autofocus onclick="check_name()">
+		        <p style="display:none">昵称重复啦~换一个吧~</p>
+		            <div style="height:16px;clear:both;display:block"></div>
+
+		        丶密码：<br/>
+		        <input type="password" style="height:24px" class="form-control" placeholder="请输入密码" required>
+		        	<div style="height:16px;clear:both;display:block"></div>
+
+		        丶密码确认：<br/>
+		        <input type="password" style="height:24px" class="form-control" placeholder="请输入密码" required>
+		        	<div style="height:16px;clear:both;display:block"></div>
+		        <button class="btn btn-lg btn-primary btn-block" type="submit">注册</button>
+		    </div>
+    	</form>
+
+    </div>
 </div>
 <!--#include virtual="/view/page/_foot.html"-->
