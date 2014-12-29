@@ -3,10 +3,8 @@
 <div>
     Hello World
    	<p>This is login page !</p>
-	<form method="post" action="">
-		UserName:<input type="text" /> <br /><br />
-		Password:<input type="password" /><br /><br />
-		<input type="button" value="Login" />
-	</form>
+		<p>UserName:<input type="text" id="username"/></p>
+		<p>Password:<input type="password" id="password"/></p>
+		<button type="button" id="login">Login</button>
 </div>
 <!--#include virtual="/view/page/_foot.html"-->
