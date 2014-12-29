@@ -1,0 +1,11 @@
+<!--#include virtual="/view/page/_head.php"-->
+<script src="/view/js/lib/require.js" data-main="/view/js/app/login/register"></script>
+<div>
+    Hello World
+    <p>This is registe page !</p>
+        <p>UserName:<input type="text" id="username"/></p>
+        <p>Password:<input type="password" id="password"/></p>
+        <p>Confirm:<input type="password" id="confirm"/></p>
+        <button type="button" id="register">Register</button>
+</div>
+<!--#include virtual="/view/page/_foot.html"-->

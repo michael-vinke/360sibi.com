@@ -1,7 +1,8 @@
 <!--#include file="view/page/_head.php"-->
 <div>
-    <a href="view/page/login/login.shtml">Login</a>
-	<a href="view/page/sibi/sibi.shtml">Sibi Page</a>
+    <p><a href="view/page/login/login.shtml">Login</a></p>
+    <p><a href="view/page/login/register.shtml">Register</a></p>
+	<p><a href="view/page/sibi/sibi.shtml">Sibi Page</a></p>
 </div>
 <!--#include file="view/page/_foot.html"-->
 
