@@ -101,9 +101,9 @@ require(['jquery', 'bootstrap', 'jquery.md5'],
 
 				$("#register").click(function(event) {
 
-					var username = $("nickname").val();
-					var password_register = $("password_register").val();
-					var password_confirm  = $("password_confirm").val();
+					var username = $("#nickname").val();
+					var password_register = $("#password_register").val();
+					var password_confirm  = $("#password_confirm").val();
 
 					if (username.length == 0) {
 						alert("请输入用户名 !");
@@ -112,6 +112,7 @@ require(['jquery', 'bootstrap', 'jquery.md5'],
 
 					if (password_register.length == 0 || password_confirm.length == 0 || password_register !== password_confirm) {
 						alert("密码不对！");
+						return;
 					}
 
 					$.post("/controller/LoginAction.php", {
