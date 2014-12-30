@@ -15,8 +15,10 @@ require(['jquery', 'bootstrap', 'jquery.md5'],
 			var $div1 = $('#' + divId1);
 			var $div2 = $('#' + divId2);
 
-			$div1.css('display', 'block');
-			$div2.css('display', 'none');
+			//$div2.css('display', 'none');
+			$div2.fadeOut(500,function(){$div1.fadeIn(800)});
+			//$div1.css('display', 'none');
+			//$div1.fadeIn(2000);
 		}
 
 		/**
