@@ -1,4 +1,4 @@
-require(['jquery', 'bootstrap', 'jquery.md5'], 
+require(['jquery', 'bootstrap', 'jquery.md5', 'cookie'], 
 	function() {
 
 		/**
@@ -72,7 +72,7 @@ require(['jquery', 'bootstrap', 'jquery.md5'],
                         if (data.return_code == '0') {
                             
                             var username = "username=" + data.data.name;
-                            document.cookie = username;  
+                           $.COOKIE.setCookie("username", data.data.name, 24);
                         }
 						alert(data.return_msg);
 
