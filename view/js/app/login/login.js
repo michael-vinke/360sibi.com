@@ -52,11 +52,11 @@ require(['jquery', 'bootstrap', 'jquery.md5'],
 					var username = $("#username").val();	
 					var password = $("#password_login").val();
 
-					if(username.length==0) { 
+					if (username.length == 0) { 
 						alert("Please Enter Username !");
 						return;
 					}
-					if(password.length==0) {
+					if (password.length == 0) {
 						alert("Please Enter Password !");
 						return;
 					}
@@ -69,6 +69,11 @@ require(['jquery', 'bootstrap', 'jquery.md5'],
 
 					}, function(data, ststus){
 
+                        if (data.return_code == '0') {
+                            
+                            var username = "username=" + data.data.name;
+                            document.cookie = username;  
+                        }
 						alert(data.return_msg);
 
 					}, "json");
