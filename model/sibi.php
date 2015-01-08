@@ -1,7 +1,7 @@
 <?php
    /**
    * Class sibi
-   * @author Mike mikecoder.cn@gmail.com
+   * @author Mike mike@mikecoder.net
    * @date 2014-12-16
    */
    require ('../includes/DBoper.class.php');

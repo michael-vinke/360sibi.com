@@ -10,7 +10,7 @@
 
    class Sibi extends Action {
       $sibiContent = new $Sibi();
-      }
+   }
 
 
-   ?>
+?>
