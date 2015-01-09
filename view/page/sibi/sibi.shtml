@@ -1,11 +1,11 @@
-<!--#include virtual="/view/page/_head.php"-->
+<!--#include virtual="../_head.php"-->
 <!DOCTYPE html>
 <html>
 <head>
-<script src="/view/js/lib/require.js" data-main="/view/js/app/sibi/sibi"></script>
+<script src="../../js/lib/require.js" data-main="../../js/app/sibi/sibi"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	    <link rel="stylesheet" href="/view/css/lib/bootstrap.min.css" />
+	    <link rel="stylesheet" href="../../css/lib/bootstrap.min.css" />
 </head>
 <body>
 <div class="container">
@@ -31,4 +31,4 @@
 </div>
 </body>
 </html>
-<!--#include virtual="/view/page/_foot.html"-->
+<!--#include virtual="../_foot.html"-->
