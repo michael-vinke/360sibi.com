@@ -31,6 +31,12 @@
       * @return array
       */
       public function getConfig(){
+         $res = array();
+         foreach ($this->config as $conf) {
+            if (is_array($conf)) {
+
+            }
+         }
          return $this->config;
       }
    }
