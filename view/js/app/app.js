@@ -4,7 +4,8 @@ require.config({
 	paths: {
 		"bootstrap"  : '/view/js/lib/bootstrap',
 		"jquery"     : '/view/js/lib/jquery',
-		"jquery.md5" : '/view/js/lib/jquery.md5'
+		"jquery.md5" : '/view/js/lib/jquery.md5',
+		"cookie"	 : '/view/js/lib/cookie'
 	}
 });
 

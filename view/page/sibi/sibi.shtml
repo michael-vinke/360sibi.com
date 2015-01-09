@@ -1,7 +1,34 @@
 <!--#include virtual="/view/page/_head.php"-->
+<!DOCTYPE html>
+<html>
+<head>
 <script src="/view/js/lib/require.js" data-main="/view/js/app/sibi/sibi"></script>
-<div>
-    Hello World
-    <p>This is sibi area !</p>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <link rel="stylesheet" href="/view/css/lib/bootstrap.min.css" />
+</head>
+<body>
+<div class="container">
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+	<p>Welcome Sibi ...</p>
+	</div>
 </div>
+<div class="row">
+	<div class="col-md-8 col-md-offset-2">
+		<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+		<div class="well-large">
+			<p>Let's sibi !</p>
+		</div>
+		</div>
+		</div>
+		<div class="row">
+			<textarea class="col-md-6 col-md-offset-2" row="3" placeholder="Sibi ..." id="enterInput"></textarea>
+		</div>
+	</div>
+</div>
+</div>
+</body>
+</html>
 <!--#include virtual="/view/page/_foot.html"-->
