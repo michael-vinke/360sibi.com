@@ -1,15 +1,15 @@
 <?php
-	
+
 	/*
 	* Singltion DBoper (base on mysqli)
 	* basic database operation
-	* 
+	*
 	* @auther fenicesun <kevin.samuel.sun@gmail.com>
 	* @date  2014-12-21
 	*
 	*
 	*/
-	
+
 
 	class DBoper {
 
@@ -29,7 +29,7 @@
 
 		/**
 		* get db instance
-		* 
+		*
 		**/
 		public static function getInstance() {
 			if (! (self::$_instance instanceof self) ) {
@@ -37,7 +37,7 @@
 			}
 			return self::$_instance;
 		}
-		
+
 		/**
 		* set db setting info
 		* @param $host, $user, $psd, $dbname
@@ -49,7 +49,7 @@
 	 								   'db_user' => $user,
 	 								   'db_psd'  => $psd,
 	 								   'db_name' => $dbname);
-		}	
+		}
 
 		/**
 		*
@@ -57,9 +57,12 @@
 		*
 		**/
 		public function connect_db() {
-			//dbsetting 
-			//--[[ set db_setting param here
-			include ('../config/db_setting_config.php');			
+			//dbsetting
+            //--[[ set db_setting param here
+            include_once('../config/config.php');
+            $db_setting_array = Config::getConfig();
+
+            var_dump($db_setting_array);
 
 			$DB_HOST = $db_setting_array['db_host'];
 			$DB_USER = $db_setting_array['db_user'];
@@ -67,7 +70,7 @@
 			$DB_NAME = $db_setting_array['db_name'];
 			//	]]--
 			$db_setting = $this->db_setting_info($DB_HOST, $DB_USER, $DB_PSD, $DB_NAME);
-			$this->_db->connect($db_setting['db_host'], $db_setting['db_user'], $db_setting['db_psd'], $db_setting['db_name']); 
+			$this->_db->connect($db_setting['db_host'], $db_setting['db_user'], $db_setting['db_psd'], $db_setting['db_name']);
 
 			if (mysqli_connect_error()) {
 				echo "connect error : {mysqli_connect_error()}";
@@ -90,11 +93,11 @@
 		* fetch data from datatable
 		* @param $sql, $type 0: row, 1: array(defalut), 2: object
 		* @return dataset
-		* 
+		*
 		**/
 		public function fetch($sql, $type) {
 			$result = array();
-			$data = array();	
+			$data = array();
 			$data = $this->query($sql);
 
 			if (!isset($type)) $type = 1;
@@ -131,34 +134,36 @@
 		public function create_statement($stmt_sql) {
 
 			$sql_string = $stmt_sql;
-			$stmt = $this->_db->prepare($sql_string);	
+			$stmt = $this->_db->prepare($sql_string);
 			return $stmt;
 		}
 
-		
+
 		/**
 		* guide
 		* how to use this class to operate db
 		* i perform here and no not run this function code in project
-		* keep safe ! 
+		* keep safe !
 		*
 		**/
 		public static function test() {
 			$db = DBoper::getInstance();
-			
+
 			$sql = "SELECT * FROM sibi360.user";
 			$result = $db->fetch($sql, 1);
-			print_r($result);	
-			
+			print_r($result);
+
 			$sql = "insert into user(username, password) values(?, ?)";
 			$stmt = $db->create_statement($sql);
 
 			$name = "nickzhu";
 			$password = "123456";
-			$stmt->bind_param("ss", $name, $password);	
+			$stmt->bind_param("ss", $name, $password);
 			$stmt->execute();
-			echo $stmt->affected_rows;	
-		
-		}
-	}
+			echo $stmt->affected_rows;
+
+         }
+      }
+
+
 ?>
