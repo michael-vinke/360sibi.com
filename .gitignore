@@ -2,7 +2,9 @@
 tags
 
 #config
-*.config.php
+local.config.php
+online.config.php
+config/
 
 #logs
 logs
