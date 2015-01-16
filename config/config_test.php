@@ -1,5 +1,5 @@
 <?php
-   include ('config.php');
+   include ("config.php");
 
    $_SERVER['REQUEST_URI'] = "localhost";
    $config = new Config();

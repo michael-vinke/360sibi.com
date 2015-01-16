@@ -10,7 +10,7 @@
    */
    class Config {
       // config
-      private $config = null;
+      private static $config = null;
 
       /**
       * construct function, get the request url and include the config file
@@ -32,10 +32,16 @@
       */
       public function getConfig(){
          $res = array();
+         var_dump($this->_config());
+         die();
          foreach ($this->config as $key => $value) {
             $res[$key] = $value;
          } // deep copy
          return $res;
+      }
+
+      private function _config(){
+         return $this->config;
       }
    }
 

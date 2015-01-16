@@ -4,7 +4,7 @@
  * @author Mike mike@mikecoder.net
  * @date 2014-12-16
  */
-include ('../includes/DBoper.class.php');
+include ('includes/DBoper.class.php');
 
 class Sibi {
     private $db_handle;
@@ -24,9 +24,7 @@ class Sibi {
         $stmt->bind_param("s", $content);
         $stmt->execute();
      }
-
-
-}
+  }
 
 $Sibi = new Sibi();
 $Sibi->storeSibi("haha", 12);

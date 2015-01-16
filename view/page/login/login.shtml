@@ -1,9 +1,9 @@
-<!--#include virtual="/view/page/_head.php"-->
-<script src="/view/js/lib/require.js" data-main="/view/js/app/login/login"></script>
+<!--#include virtual="../../page/_head.php"-->
+<script src="../../js/lib/require.js" data-main="../../js/app/login/login"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="/view/css/lib/bootstrap.min.css" />
-<link rel="stylesheet" href="/view/css/lib/bootstrap.css" />
+<link rel="stylesheet" href="../../css/lib/bootstrap.min.css" />
+<link rel="stylesheet" href="../../css/lib/bootstrap.css" />
 
 <nav class="navbar navbar-default" role="navigation">
 	<div class="navbar-header">
@@ -11,7 +11,7 @@
 	</div>
 	<div>
 		<ul class="nav navbar-nav">
-			<li><a href="/view/page/sibi/sibi.shtml">sibi</a></li>
+			<li><a href="../../page/sibi/sibi.shtml">sibi</a></li>
 			<li class="active"><a href="login.shtml">login</a></li>
 		</ul>
 	</div>
@@ -59,4 +59,4 @@
 
     </div>
 </div>
-<!--#include virtual="/view/page/_foot.html"-->
+<!--#include virtual="../../page/_foot.html"-->
